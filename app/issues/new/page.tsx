@@ -7,11 +7,11 @@ const SimpleMDE = dynamic(
         ssr: false //do not render on the server
     })
 
+import {
+    ErrorMessage,
+    Spinner,
+} from '@/app/components'
 
-
-
-import ErrorMessage from '@/app/components/ErrorMessage';
-import Spinner from '@/app/components/Spinner';
 import { createIssueSchema } from '@/app/validationSchemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
