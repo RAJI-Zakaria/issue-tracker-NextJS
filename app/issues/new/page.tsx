@@ -1,26 +1,32 @@
 'use client'
-import { Button, Callout, Text, TextField } from '@radix-ui/themes'
-import dynamic from 'next/dynamic'
-const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false })
+import { Button, Callout, TextField } from '@radix-ui/themes';
+import dynamic from 'next/dynamic';
+const SimpleMDE = dynamic(
+    () => import('react-simplemde-editor'), 
+    { 
+        ssr: false //do not render on the server
+    })
 
 
 
-import "easymde/dist/easymde.min.css";
-import axios from 'axios';
-import  { useForm , Controller} from 'react-hook-form';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { createIssueSchema } from '@/app/validationSchemas';
-import {z} from 'zod'
+
 import ErrorMessage from '@/app/components/ErrorMessage';
 import Spinner from '@/app/components/Spinner';
+import { createIssueSchema } from '@/app/validationSchemas';
+import { zodResolver } from '@hookform/resolvers/zod';
+import axios from 'axios';
+import "easymde/dist/easymde.min.css";
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { z } from 'zod';
 
+import delay from 'delay';
 
 type IssueForm = z.infer<typeof createIssueSchema>
 
 
-const NewIssuePage = () => {
+const NewIssuePage = async() => {
     const router = useRouter();
     const {register, control, handleSubmit, formState: {errors}} = useForm<IssueForm>({
         resolver: zodResolver(createIssueSchema)
@@ -38,6 +44,9 @@ const NewIssuePage = () => {
             setError('an unexpected error occurred')
         }
     })
+
+    await delay(3000)
+    
   return (
     <div 
     className='max-w-xl space-y-3 items-center mx-auto'>
