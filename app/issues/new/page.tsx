@@ -40,7 +40,8 @@ const NewIssuePage = () => {
     })
   return (
     <div 
-    className='max-w-xl space-y-3 items-center'>
+    className='max-w-xl space-y-3 items-center mx-auto'>
+        <h2>Create a new issue</h2>
         {
             error && 
             <Callout.Root color='red'>
@@ -50,7 +51,8 @@ const NewIssuePage = () => {
             </Callout.Root>
         }
         <form 
-            onSubmit={onSubmit}>
+            onSubmit={onSubmit}
+            className="space-y-4">
 
             <TextField.Root>
                 <TextField.Input placeholder='Title' {...register('title')} />
