@@ -1,6 +1,7 @@
+import WhatIsNextJS from "./components/WhatIsNextJS";
 
 export default function Home() {
   return (
-    <div>Hello world</div>
+    <WhatIsNextJS />
   );
 }
