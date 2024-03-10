@@ -44,6 +44,7 @@ const IssueForm = async({issue}: {issue?: Issue}) => {
                 await axios.post('/api/issues', data)
 
             router.push('/issues')
+            router.refresh()
         }catch(e){
             setSubmitting(false)
             setError('an unexpected error occurred')
@@ -78,9 +79,9 @@ const IssueForm = async({issue}: {issue?: Issue}) => {
                 render={({field}) => <SimpleMDE {...field} />}
             />
             <ErrorMessage>{errors.description?.message}</ErrorMessage> 
-                <Button disabled={isSubmitting}>{issue ? 'Edit Issue' : 'Submit New Issue'} 
-                    {isSubmitting && <Spinner />}
-                </Button>
+            <Button className='cursor-pointer' disabled={isSubmitting}>{issue ? 'Edit Issue' : 'Submit New Issue'} 
+                {isSubmitting && <Spinner />}
+            </Button>
 
         </form>
     </div>

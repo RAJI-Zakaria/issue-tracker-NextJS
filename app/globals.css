@@ -20,7 +20,10 @@ body {
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .nav-link {
+    @apply text-zinc-500 transition;
+  }
+  .nav-link:hover {
+    @apply text-zinc-700;
   }
 }
