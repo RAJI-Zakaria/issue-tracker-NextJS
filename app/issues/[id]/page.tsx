@@ -25,7 +25,6 @@ const IssueDetailsPage = async ({params}: Props) => {
     if(!issue)
         notFound()
 
-    await delay(2000)
     
   return (
     <Grid columns={{initial:"1", md:"5"}} gap="5">
@@ -35,7 +34,7 @@ const IssueDetailsPage = async ({params}: Props) => {
        <Box>
            <Flex direction='column' gap='2'>
             <EditIssueButton issueId={issue.id}/>    
-            <DeleteIssueButton issueId={0} />
+            <DeleteIssueButton issueId={issue.id} />
            </Flex>
         </Box>
 

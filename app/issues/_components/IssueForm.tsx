@@ -22,7 +22,6 @@ import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import delay from 'delay';
 import { Issue } from '@prisma/client';
 
 type IssueFormData = z.infer<typeof issueSchema>
@@ -51,7 +50,6 @@ const IssueForm = async({issue}: {issue?: Issue}) => {
         }
     })
 
-    await delay(1500)
     
   return (
     <div 
