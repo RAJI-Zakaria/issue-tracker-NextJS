@@ -37,6 +37,10 @@ const NavigationLinks = ()=>{
         {
             label: 'Issues',
             href: '/issues'
+        },
+        {
+            label: 'What is NextJS',
+            href: '/what-is-nextjs'
         }
     ]
     return (
