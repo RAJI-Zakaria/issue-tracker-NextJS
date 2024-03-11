@@ -2,24 +2,54 @@ import {
   IssueStatusBadge,
   Link,
 } from '@/app/components'
-import { Table } from '@radix-ui/themes'
+import NextLink from 'next/link'
+import { Box, Table } from '@radix-ui/themes'
 
 import prisma from '@/prisma/client'
+import { Issue, Status } from '@prisma/client'
 import IssueActions from './IssueActions'
+import { ArrowUpIcon } from '@radix-ui/react-icons'
+ 
+const IssuesPage = async ({searchParams}: { searchParams: {status: Status, orderBy: keyof Issue}}) => {
+  const columns: { 
+    label:string, 
+    value:keyof Issue,
+    className?: string
+  } [] = [
+    { label: 'Issue', value: 'title'},
+    { label: 'Description', value: 'description', className: 'hidden md:table-cell'},
+    { label: 'Status', value: 'status', className: 'hidden md:table-cell'},
+    { label: 'Created', value: 'createdAt', className: 'min-w-[150px] hidden md:table-cell'}
+  ] 
+  const statuses = Object.values(Status);
+  const status = statuses.includes(searchParams.status)
+  ? searchParams.status : undefined
+   
 
-const IssuesPage = async () => {
-  const issues = await prisma.issue.findMany();
+  const issues = await prisma.issue.findMany({
+    where: {
+      status
+    }
+  });
 
   return (
-    <div className="space-y-4">
+    <Box className="space-y-4">
         <IssueActions />
         <Table.Root variant='surface'>
           <Table.Header>
             <Table.Row>
-              <Table.ColumnHeaderCell>Title</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className='hidden md:table-cell'>Description</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className='hidden md:table-cell'>Status</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className='hidden md:table-cell'>Created</Table.ColumnHeaderCell>
+              {
+                columns.map(column => (
+                  <Table.ColumnHeaderCell key={column.label} className={column.className}>
+                    <NextLink href={{
+                      query: {...searchParams, orderBy: column.value}
+                    }}>
+                      {column.label}
+                    </NextLink>
+                    {column.value === searchParams.orderBy && <ArrowUpIcon className='inline'/>}
+                  </Table.ColumnHeaderCell>
+                ))
+              }
               <Table.ColumnHeaderCell>Actions</Table.ColumnHeaderCell>
             </Table.Row>
           </Table.Header>
@@ -45,7 +75,8 @@ const IssuesPage = async () => {
           </Table.Body>
 
         </Table.Root>
-    </div>
+
+     </Box>
   )
 }
 

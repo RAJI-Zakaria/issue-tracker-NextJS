@@ -48,7 +48,6 @@ const AssigneeSelect = ({issue}: {issue:Issue}) => {
     </Select.Root> 
 
     <Toaster>
-
     </Toaster>
    
    </>
