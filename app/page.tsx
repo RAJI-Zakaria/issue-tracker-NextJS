@@ -1,3 +1,4 @@
+import IssueChart from "./IssueChart";
 import IssueSummary from "./IssueSummary";
 import LatestIssues from "./LatestIssues";
 import WhatIsNextJS from "./components/WhatIsNextJS";
@@ -23,6 +24,7 @@ export default async function Home({searchParams} : {searchParams:{page: string}
     <>
     <LatestIssues/>
     <IssueSummary open={countOpenIssues} done={countDoneIssues} inProgress={countInProgressIssues} />
+    <IssueChart open={countOpenIssues} done={countDoneIssues} inProgress={countInProgressIssues} />
     <WhatIsNextJS />
     </>
   );
