@@ -18,6 +18,8 @@ model Issue {
   title       String   @db.VarChar(255)
   description String   @db.Text
   status      Status   @default(OPEN)
+  assignedToUserId  String? @db.VarChar(255)
+  assignedToUser User? @relation(fields: [assignedToUserId], references: [id])
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
@@ -63,6 +65,7 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  assignedIssues  Issue[]
   accounts      Account[]
   sessions      Session[]
 }
