@@ -1,7 +1,8 @@
-import React from 'react'
-import IssueForm from '../../_components/IssueForm'
-import prisma from '@/prisma/client'
-import { notFound } from 'next/navigation'
+import type { Metadata } from "next";
+
+import prisma from '@/prisma/client';
+import { notFound } from 'next/navigation';
+import IssueForm from '../../_components/IssueForm';
 
 interface Props {
     params: {
@@ -25,5 +26,8 @@ const EditIssuePage = async ({params}:Props) => {
     <IssueForm issue={issue}/>
   )
 }
-
+export const metadata: Metadata = {
+    title: 'Edit Issue',
+    description: 'Edit an issue'
+}
 export default EditIssuePage

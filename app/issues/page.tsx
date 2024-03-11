@@ -1,12 +1,14 @@
+import type { Metadata } from "next";
+
 import {
   Pagination
-} from '@/app/components'
-import { Flex } from '@radix-ui/themes'
+} from '@/app/components';
+import { Flex } from '@radix-ui/themes';
 
-import prisma from '@/prisma/client'
-import { Status } from '@prisma/client'
-import IssueActions from './IssueActions'
-import IssueTable, { IssueQuery, columnNames } from './IssueTable'
+import prisma from '@/prisma/client';
+import { Status } from '@prisma/client';
+import IssueActions from './IssueActions';
+import IssueTable, { IssueQuery, columnNames } from './IssueTable';
  
  
 interface Props{
@@ -49,6 +51,12 @@ const IssuesPage = async ({searchParams}: Props) => {
               />
      </Flex>
   )
+}
+
+
+export const metadata: Metadata = {
+  title: 'Issues',
+  description: 'List of issues'
 }
 
 export default IssuesPage

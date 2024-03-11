@@ -30,12 +30,12 @@ export default function RootLayout({
       <body className={inter.variable}>
         <QueryClientProvider>
           <AuthProvider>
-            <Theme  accentColor="violet" grayColor="gray">
+            <Theme accentColor="violet" grayColor="gray">
               <NavBar/>
               <main className="container mx-auto px-4">
                 <Container>{children}</Container>
               </main>
-              {/* <ThemePanel /> */} 
+              {/* <ThemePanel />  */}
             </Theme>
           </AuthProvider>
         </QueryClientProvider>
