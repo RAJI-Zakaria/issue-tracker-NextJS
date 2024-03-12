@@ -50,3 +50,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+# What is NEXT ?
+What a great course full of information presented by M. Mosh. 
+Here are some other features that i will develop whenever i have time :
+- Implement a descending sort on the Issue List page.
+- Add a drop-down list to select the page size. 
+- On the Issue Detail page, add a drop-down list for changing the status of an issue (similar to how we have a drop-down list for changing the assignee).
+- When an issue is assigned to a user, automatically set the status to IN_PROGRESS.
+- Implement the ability to filter issues by assignee.•Introduce a feature to add comments below an issue.
