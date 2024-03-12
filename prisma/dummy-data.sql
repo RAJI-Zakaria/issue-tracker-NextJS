@@ -1,0 +1,16 @@
+INSERT INTO Issue (title, description, status, createdAt, updatedAt) VALUES
+('Database connection issue', 'Users are experiencing difficulties connecting to the database server.', 'OPEN', '2024-03-12 08:15:00', '2024-03-12 08:15:00'),
+('Login page layout broken', 'The login page layout is broken on mobile devices.', 'OPEN', '2024-03-12 08:30:00', '2024-03-12 08:30:00'),
+('Performance degradation in search feature', 'Search feature is taking longer than usual to return results.', 'IN_PROGRESS', '2024-03-12 09:00:00', '2024-03-12 09:15:00'),
+('Error message not displaying properly', 'The error message on the checkout page is not displaying properly.', 'OPEN', '2024-03-12 09:30:00', '2024-03-12 09:30:00'),
+('Email notifications not being sent', 'Users are not receiving email notifications for new messages.', 'DONE', '2024-03-12 10:00:00', '2024-03-12 10:30:00'),
+('404 error on product page', 'Users are encountering a 404 error when trying to view a specific product page.', 'OPEN', '2024-03-12 11:00:00', '2024-03-12 11:30:00'),
+('Payment gateway integration issue', 'Payment gateway is not processing transactions correctly.', 'IN_PROGRESS', '2024-03-12 12:00:00', '2024-03-12 12:30:00'),
+('Missing images on homepage', 'Images are not loading properly on the homepage.', 'OPEN', '2024-03-12 13:00:00', '2024-03-12 13:15:00'),
+('Broken links in footer', 'Some links in the footer section are leading to incorrect pages.', 'OPEN', '2024-03-12 14:00:00', '2024-03-12 14:00:00'),
+('SSL certificate expired', 'The SSL certificate for the website has expired.', 'OPEN', '2024-03-12 14:30:00', '2024-03-12 14:30:00'),
+('Slow response time on checkout', 'Checkout process is taking longer than usual to complete.', 'OPEN', '2024-03-12 15:00:00', '2024-03-12 15:15:00'),
+('Search feature returning incorrect results', 'Search feature is returning irrelevant results for user queries.', 'IN_PROGRESS', '2024-03-12 16:00:00', '2024-03-12 16:30:00'),
+('Broken image links in product descriptions', 'Image links in product descriptions are leading to 404 errors.', 'OPEN', '2024-03-12 17:00:00', '2024-03-12 17:00:00'),
+('CSS styling issue on category pages', 'Category pages are not displaying correctly due to CSS styling issues.', 'OPEN', '2024-03-12 18:00:00', '2024-03-12 18:15:00'),
+('Database server crash', 'The database server crashed unexpectedly, causing service disruption.', 'OPEN', '2024-03-12 19:00:00', '2024-03-12 19:30:00');
