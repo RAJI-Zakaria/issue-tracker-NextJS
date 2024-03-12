@@ -1,11 +1,10 @@
 'use client'
-import { AlertDialog, Button, Flex } from '@radix-ui/themes'
+import { Spinner } from '@/app/components'
 import { CrossCircledIcon } from '@radix-ui/react-icons'
-import Link from 'next/link'
+import { AlertDialog, Button, Flex } from '@radix-ui/themes'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { Spinner } from '@/app/components'
 
 const DeleteIssueButton = ({issueId}: {issueId:number}) => {
   const router = useRouter();
@@ -56,7 +55,7 @@ const DeleteIssueButton = ({issueId}: {issueId:number}) => {
         <AlertDialog.Content>
           <AlertDialog.Title>Error</AlertDialog.Title>
           <AlertDialog.Description>
-            An error occured while deleting the issue
+            An error occurred while deleting the issue
           </AlertDialog.Description>
           <AlertDialog.Action>
             <Button variant='surface' onClick={()=>setError(false)}>Close</Button>
