@@ -9,11 +9,12 @@ import prisma from '@/prisma/client';
 import { Status } from '@prisma/client';
 import IssueActions from './IssueActions';
 import IssueTable, { IssueQuery, columnNames } from './IssueTable';
- 
+
  
 interface Props{
   searchParams: IssueQuery
 }
+
 const IssuesPage = async ({searchParams}: Props) => {
    
   const statuses = Object.values(Status);
@@ -43,12 +44,12 @@ const IssuesPage = async ({searchParams}: Props) => {
   return (
     <Flex direction='column' gap='3'>
         <IssueActions />
-              <IssueTable searchParams={searchParams} issues={issues} />
-              <Pagination 
-                pageSize={pageSize}
-                itemCount={issueCount}
-                currentPage={page}
-              />
+          <IssueTable searchParams={searchParams} issues={issues} />
+          <Pagination 
+            pageSize={pageSize}
+            itemCount={issueCount}
+            currentPage={page}
+          />
      </Flex>
   )
 }

@@ -4,6 +4,7 @@ import { Flex, Grid } from "@radix-ui/themes";
 import IssueChart from "./IssueChart";
 import IssueSummary from "./IssueSummary";
 import LatestIssues from "./LatestIssues";
+import prisma from "@/prisma/client";
 
 export default async function Home({searchParams} : {searchParams:{page: string}}) {
   const countOpenIssues = await prisma?.issue.count ({

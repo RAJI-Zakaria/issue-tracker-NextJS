@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import { Container, Theme, ThemePanel } from '@radix-ui/themes';
 import AuthProvider from "./auth/Provider";
 import QueryClientProvider from "./QueryClientProvider";
+import { Suspense } from 'react'
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -33,7 +34,10 @@ export default function RootLayout({
             <Theme accentColor="violet" grayColor="gray">
               <NavBar/>
               <main className="container mx-auto px-4">
-                <Container>{children}</Container>
+
+                <Suspense>
+                  <Container>{children}</Container>
+                </Suspense>
               </main>
               {/* <ThemePanel />  */}
             </Theme>
