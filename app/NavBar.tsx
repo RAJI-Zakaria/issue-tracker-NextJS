@@ -1,11 +1,12 @@
 'use client'
-import { Avatar, Box, Container, DropdownMenu, Flex } from '@radix-ui/themes';
+import { Avatar, Box, Button, Container, DropdownMenu, Flex } from '@radix-ui/themes';
 import classNames from 'classnames';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PiBugFill } from "react-icons/pi";
 import {Skeleton} from '@/app/components'
+import { DropdownMenuIcon } from '@radix-ui/react-icons';
 
 const NavBar = () => {
    
@@ -13,7 +14,7 @@ const NavBar = () => {
     <nav className="border-b mb-5 px-5 py-3 h-14">
         <Container>
             <Flex justify='between'>
-                <Flex align='center' gap='3'>
+                <Flex align='center'  gap='3'>
                     <Link href="/">
                         <PiBugFill  size={25} />
                     </Link>
@@ -44,7 +45,34 @@ const NavigationLinks = ()=>{
         }
     ]
     return (
-        <ul className='flex space-x-8'>
+        <>
+            <Box className='visible md:invisible'>
+            <DropdownMenu.Root>
+                <DropdownMenu.Trigger>
+                    <Button variant="soft"> 
+                    <DropdownMenuIcon />
+                    </Button>
+                </DropdownMenu.Trigger>
+                <DropdownMenu.Content>
+                {
+                    links.map((link) => (
+                        <DropdownMenu.Item key={link.href}>
+                            <Link className={classNames({
+                                'nav-link': true,
+                                '!text-zinc-800' : currentPath === link.href,
+                            })} href={link.href}>
+                                {link.label}
+                            </Link>
+                        </DropdownMenu.Item>
+                    ))
+                }
+                    
+                  
+                </DropdownMenu.Content>
+                </DropdownMenu.Root>
+                </Box>
+
+                <ul className='flex space-x-8 invisible md:visible'>
             {
                 links.map((link) => (
                     <li key={link.href}>
@@ -58,6 +86,8 @@ const NavigationLinks = ()=>{
                 ))
             }
         </ul>
+        </>
+        
     )
 }
 
