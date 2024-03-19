@@ -5,6 +5,7 @@ import { Flex, Grid } from "@radix-ui/themes";
 import IssueChart from "./IssueChart";
 import IssueSummary from "./IssueSummary";
 import LatestIssues from "./LatestIssues";
+import DBInfo from "./components/DBInfo";
 
 export default async function Home({searchParams} : {searchParams:{page: string}}) {
   const countOpenIssues = await prisma?.issue.count ({
@@ -24,13 +25,17 @@ export default async function Home({searchParams} : {searchParams:{page: string}
   })  || 0
 
   return (
-    <Grid columns={{ initial: "1", md: "2" }} gap='3'>
+    <>
+    <DBInfo />
+    <Grid columns={{ initial: "1", md: "2" }} gap='3'> 
       <Flex direction="column" gap='3'>
         <IssueSummary open={countOpenIssues} done={countDoneIssues} inProgress={countInProgressIssues} />
         <IssueChart open={countOpenIssues} done={countDoneIssues} inProgress={countInProgressIssues} />
       </Flex>
       <LatestIssues/>
     </Grid>
+
+    </>
   );
 }
 
