@@ -33,7 +33,7 @@ export default function RootLayout({
           <AuthProvider>
             <Theme accentColor="violet" grayColor="gray">
               <NavBar/>
-              <main className="container mx-auto px-4">
+              <main className="container mx-auto p-4">
 
                 <Suspense>
                   <Container>{children}</Container>
