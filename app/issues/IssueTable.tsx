@@ -37,7 +37,11 @@ const IssueTable = ({searchParams, issues}: Props) => {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {issues?.map((issue) => (
+            {issues?.map((issue) => ( // 7af83e7a-4a22-43ea-b33f-7b7e44b5b370
+            //panel 4c68fb08@Ec53?#
+            // Yck#~dHa[1y
+
+
               <Table.Row key={issue.id}>
                 <Table.Cell> 
                   <Link href={`/issues/${issue.id}`}>{issue.title}</Link>
